@@ -1,40 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🎬 CineSeek — ALX Project 0x14: Movie Database Explorer
 
-## Getting Started
+## 📘 Overview
+**CineSeek** is a responsive movie discovery web app built with **Next.js**, **TypeScript**, and **Tailwind CSS**.  
+It integrates with the **MoviesDatabase API (via RapidAPI)** to allow users to explore, search, and filter movies by title, year, and genre.  
 
-First, run the development server:
+This project is part of the **ALX Software Engineering Program (0x14 - API)** and demonstrates skills in:
+- RESTful API integration  
+- Modular frontend architecture  
+- Secure environment management  
+- Responsive UI design  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧠 Learning Objectives
+- Understand and document RESTful API endpoints  
+- Use TypeScript interfaces to define data models  
+- Build reusable React components and layouts  
+- Fetch and render API data securely from a server route  
+- Implement loading and error states  
+- Apply responsive design with Tailwind CSS  
+- Manage environment variables securely  
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## ⚙️ Tech Stack
+| Category | Technology |
+|-----------|-------------|
+| Framework | **Next.js 14** |
+| Language | **TypeScript** |
+| Styling | **Tailwind CSS** |
+| Icons | **Font Awesome** |
+| API | **MoviesDatabase API (RapidAPI)** |
+| Version Control | **Git & GitHub** |
+| Runtime | **Node.js v16+** |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Tasks Overview
 
-## Learn More
+### **Task 0 — Reading API Documentation**
+- Review the MoviesDatabase API docs via RapidAPI.  
+- Document endpoints, authentication, and query parameters.  
+- Understand request/response formats and error codes.
 
-To learn more about Next.js, take a look at the following resources:
+### **Task 1 — Bootstrap Movie App**
+- Initialize a new Next.js + TypeScript + Tailwind project.
+- Create base directories for components, layouts, and interfaces.
+- Configure ESLint and TypeScript aliases.
+- Commit initial setup to Git.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### **Task 2 — Header, Footer, and Layout**
+- Implement shared layout structure across all pages.
+- Add navigation bar, footer, and home landing page.
+- Wrap all pages with `Layout` in `_app.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Task 3 — Movies Page**
+- Create `/movies` route with filters and pagination.
+- Fetch movie data from API via a server route.
+- Display results using reusable components.
+- Handle loading and error states gracefully.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 🧱 System Architecture (Markdown Diagram)
+```text
+┌───────────────────────────────────────────────┐
+│                  User Interface               │
+│     (React Components rendered by Next.js)    │
+│  ┌─────────────────────────────────────────┐  │
+│  │ Components/                             │  │
+│  │   ├── commons/ → Buttons, Cards, etc.   │  │
+│  │   └── layouts/ → Header, Footer, Layout │  │
+│  └─────────────────────────────────────────┘  │
+│                     │                          │
+│                     ▼                          │
+│          ┌─────────────────────────┐           │
+│          │ Routing Layer (pages/)  │           │
+│          │ index.tsx, movies/, api/│           │
+│          └─────────────────────────┘           │
+│                     │                          │
+│                     ▼                          │
+│          ┌─────────────────────────┐           │
+│          │ Server/API Proxy Layer  │           │
+│          │ pages/api/fetch-movies  │           │
+│          └─────────────────────────┘           │
+│                     │                          │
+│                     ▼                          │
+│          ┌─────────────────────────┐           │
+│          │ Type Layer (interfaces/) │           │
+│          │ Defines data structures │           │
+│          └─────────────────────────┘           │
+│                     │                          │
+│                     ▼                          │
+│       ┌────────────────────────────────────┐   │
+│       │ Configuration & Environment Layer  │   │
+│       │ (.env.local, next.config.js, etc.) │   │
+│       └────────────────────────────────────┘   │
+│                     │                          │
+│                     ▼                          │
+│          ┌────────────────────────────┐         │
+│          │ External API (RapidAPI)   │          │
+│          │ MoviesDatabase API source │          │
+│          └────────────────────────────┘         │
+└───────────────────────────────────────────────┘
